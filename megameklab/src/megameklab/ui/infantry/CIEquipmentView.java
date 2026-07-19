@@ -345,10 +345,6 @@ public class CIEquipmentView extends IView implements ActionListener {
     /** Creates the control panel with the filters and buttons. */
     private JComponent getControlPanel() {
         Box controlPanel = Box.createVerticalBox();
-        if (CConfig.getBooleanParam(CConfig.NAG_EQUIPMENT_CTRL_CLICK)) {
-            controlPanel.add(getUserInfoPanel());
-            controlPanel.add(Box.createVerticalStrut(4));
-        }
         controlPanel.add(getShowTogglesPanel());
         controlPanel.add(Box.createVerticalStrut(4));
         controlPanel.add(getHideTogglesPanel());
@@ -405,7 +401,11 @@ public class CIEquipmentView extends IView implements ActionListener {
         showAllButton.addActionListener(e -> showAllEquipment());
         buttonPanel.add(showAllButton);
 
-        var showTogglesPanel = Box.createHorizontalBox();
+        var showTogglesPanel = Box.createVerticalBox();
+        if (CConfig.getBooleanParam(CConfig.NAG_EQUIPMENT_CTRL_CLICK)) {
+            showTogglesPanel.add(getUserInfoPanel());
+            showTogglesPanel.add(Box.createVerticalStrut(4));
+        }
         showTogglesPanel.add(buttonPanel);
         showTogglesPanel.setBackground(UIManager.getColor("Table.background"));
         showTogglesPanel.setOpaque(true);
