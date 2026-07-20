@@ -975,8 +975,8 @@ public class BMChassisView extends BuildView implements ActionListener, ChangeLi
         if (!availableStructures.isEmpty()) {
             return availableStructures.get(0);
         }
-          return EquipmentType.getStructureFromName(EquipmentType.getStructureTypeName(
-              EquipmentType.T_STRUCTURE_STANDARD, techManager.useClanTechBase()));
+        return EquipmentType.getStructureFromName(EquipmentType.getStructureTypeName(
+            EquipmentType.T_STRUCTURE_STANDARD, techManager.useClanTechBase()));
     }
 
     public Engine getEngine() {
